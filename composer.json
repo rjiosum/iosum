@@ -1,0 +1,27 @@
+{
+    "name": "iosum/base",
+    "description": "base pkg",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raj",
+            "email": "rj.iosum@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Iosum\\Base\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Iosum\\Base\\Providers\\BaseServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false
+}
