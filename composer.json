@@ -1,0 +1,27 @@
+{
+    "name": "iosum/api-exception",
+    "description": "api exception pkg",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raj",
+            "email": "rj.iosum@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Iosum\\ApiException\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Iosum\\ApiException\\Providers\\ApiExceptionServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false
+}

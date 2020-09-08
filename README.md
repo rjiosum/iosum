@@ -1,5 +1,2 @@
-# Contents
+# Api Exception
 
-- Base
-- Api Exception
-- Admin Auth
