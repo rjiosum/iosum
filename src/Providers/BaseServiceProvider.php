@@ -93,10 +93,11 @@ class BaseServiceProvider extends ServiceProvider
     /**
      * Resource loading path
      *
+     * @param $current
      * @return string
      */
-    protected function dirPath(): string
+    protected function dirPath($current): string
     {
-        return __DIR__.'/../../';
+        return $current.'/../../';
     }
 }
