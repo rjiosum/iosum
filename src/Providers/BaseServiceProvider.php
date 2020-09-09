@@ -5,6 +5,7 @@ namespace Iosum\Base\Providers;
 
 
 use Illuminate\Contracts\Foundation\CachesConfiguration;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Iosum\Base\Repositories\BaseRepository;
@@ -20,6 +21,7 @@ class BaseServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function register(): void
     {
@@ -31,16 +33,31 @@ class BaseServiceProvider extends ServiceProvider
             return new HelperService();
         });
 
+        $this->mergeConfigFrom(
+            $this->dirPath(__DIR__) . 'config/settings.php', 'settings'
+        );
     }
 
     /**
      * Bootstrap any application services.
      *
+     * @param Request $request
      */
-    public function boot(): void
+    public function boot(Request $request): void
     {
+        $collection = $request->segments();
 
+        $route = config('settings.backend.route');
+        $frontend = config('settings.frontend.template');
+        $backend = config('settings.backend.template');
 
+        $path = resource_path($frontend . '/views');
+
+        if (in_array($route, $collection)) {
+            $path = resource_path($backend . '/views');
+        }
+
+        view()->addLocation($path);
     }
 
     /**
