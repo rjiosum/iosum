@@ -1,0 +1,2 @@
+export const SET_DRAWER = 'SET_DRAWER'
+export const SET_EXPAND_ON_HOVER = 'SET_EXPAND_ON_HOVER'

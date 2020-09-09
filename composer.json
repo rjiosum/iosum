@@ -1,0 +1,32 @@
+{
+    "name": "iosum/admin-ui",
+    "description": "admin ui pkg",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Raj",
+        "email": "rj.iosum@gmail.com"
+    }],
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iosum\\AdminUI\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Iosum\\AdminUI\\Providers\\AdminUIServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
