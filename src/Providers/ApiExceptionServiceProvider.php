@@ -4,21 +4,11 @@
 namespace Iosum\ApiException\Providers;
 
 
-use Illuminate\Support\ServiceProvider;
+use Iosum\Base\Providers\BaseServiceProvider;
 
 
-class ApiExceptionServiceProvider extends ServiceProvider
+class ApiExceptionServiceProvider extends BaseServiceProvider
 {
 
-    public function register(): void
-    {
-
-    }
-
-    public function boot(): void
-    {
-
-
-    }
 
 }
