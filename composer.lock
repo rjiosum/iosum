@@ -625,12 +625,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:rjiosum/iosum.git",
-                "reference": "00d47fbac09e05886f4bdb4aba368d700a6d3c58"
+                "reference": "80925b519fc9356504b7bf29433fbee5ca36063b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rjiosum/iosum/zipball/00d47fbac09e05886f4bdb4aba368d700a6d3c58",
-                "reference": "00d47fbac09e05886f4bdb4aba368d700a6d3c58",
+                "url": "https://api.github.com/repos/rjiosum/iosum/zipball/80925b519fc9356504b7bf29433fbee5ca36063b",
+                "reference": "80925b519fc9356504b7bf29433fbee5ca36063b",
                 "shasum": ""
             },
             "type": "library",
@@ -660,7 +660,7 @@
                 "source": "https://github.com/rjiosum/iosum/tree/base",
                 "issues": "https://github.com/rjiosum/iosum/issues"
             },
-            "time": "2020-09-08T14:08:52+00:00"
+            "time": "2020-09-09T12:25:24+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -1032,16 +1032,16 @@
         },
         {
             "name": "laravel/ui",
-            "version": "v2.2.1",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ui.git",
-                "reference": "456daa330a32483b0fa9794334e60af6b2db3bf6"
+                "reference": "2ccaa3b821ea8ac7e05393b946d0578bdb46099b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/456daa330a32483b0fa9794334e60af6b2db3bf6",
-                "reference": "456daa330a32483b0fa9794334e60af6b2db3bf6",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/2ccaa3b821ea8ac7e05393b946d0578bdb46099b",
+                "reference": "2ccaa3b821ea8ac7e05393b946d0578bdb46099b",
                 "shasum": ""
             },
             "require": {
@@ -1083,7 +1083,7 @@
                 "laravel",
                 "ui"
             ],
-            "time": "2020-09-08T13:09:39+00:00"
+            "time": "2020-09-09T12:07:59+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -4564,16 +4564,16 @@
     "packages-dev": [
         {
             "name": "composer/semver",
-            "version": "1.5.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "610045d2a33b8e368abebc789f6f4180b4f88ab6"
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/610045d2a33b8e368abebc789f6f4180b4f88ab6",
-                "reference": "610045d2a33b8e368abebc789f6f4180b4f88ab6",
+                "url": "https://api.github.com/repos/composer/semver/zipball/114f819054a2ea7db03287f5efb757e2af6e4079",
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079",
                 "shasum": ""
             },
             "require": {
@@ -4621,7 +4621,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2020-09-08T14:18:25+00:00"
+            "time": "2020-09-09T09:34:06+00:00"
         },
         {
             "name": "composer/xdebug-handler",

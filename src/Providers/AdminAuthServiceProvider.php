@@ -3,6 +3,7 @@
 
 namespace Iosum\AdminAuth\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Iosum\Base\Providers\BaseServiceProvider;
 
@@ -11,10 +12,10 @@ class AdminAuthServiceProvider extends BaseServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
+     * @param Request $request
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function boot(): void
+    public function boot(Request $request): void
     {
         $this->loadRoutesFrom($this->dirPath(__DIR__) . 'routes/admin-auth.php');
 
