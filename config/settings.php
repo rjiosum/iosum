@@ -4,11 +4,11 @@ return [
 
     'backend' => [
         'route' => 'backoffice',
-        'theme' => 'theme01'
+        'theme' => 'backend/theme01'
     ],
 
     'frontend' => [
-        'theme' => 'theme01',
+        'theme' => 'frontend/theme01',
     ],
 
 ];

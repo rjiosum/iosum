@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-
 namespace Iosum\Base\Providers;
-
 
 use Illuminate\Contracts\Foundation\CachesConfiguration;
 use Illuminate\Http\Request;
@@ -48,8 +46,8 @@ class BaseServiceProvider extends ServiceProvider
         $collection = $request->segments();
 
         $route = config('settings.backend.route');
-        $frontend = config('settings.frontend.template');
-        $backend = config('settings.backend.template');
+        $frontend = config('settings.frontend.theme');
+        $backend = config('settings.backend.theme');
 
         $path = resource_path($frontend . '/views');
 

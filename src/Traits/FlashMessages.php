@@ -1,5 +1,4 @@
-<?php
-
+<?php declare(strict_types=1);
 
 namespace Iosum\Base\Traits;
 
@@ -30,7 +29,7 @@ trait FlashMessages
      * @param $message
      * @param $type
      */
-    protected function setFlashMessage($message, $type)
+    protected function setFlashMessage($message, $type): void
     {
         $model = 'infoMessages';
 
@@ -69,7 +68,7 @@ trait FlashMessages
     /**
      * @return array
      */
-    protected function getFlashMessages()
+    protected function getFlashMessages(): array
     {
         return [
             'error' => $this->errorMessages,
@@ -82,7 +81,7 @@ trait FlashMessages
     /**
      * Flushing flash messages to Laravel's session
      */
-    protected function showFlashMessages()
+    protected function showFlashMessages(): void
     {
         session()->flash('error', $this->errorMessages);
         session()->flash('info', $this->infoMessages);

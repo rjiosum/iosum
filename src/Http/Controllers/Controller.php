@@ -1,9 +1,6 @@
-<?php
-
+<?php declare(strict_types=1);
 
 namespace Iosum\Base\Http\Controllers;
-
-
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Response;
