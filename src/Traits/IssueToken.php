@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Iosum\AdminAuth\Traits;
 
@@ -25,7 +25,7 @@ trait IssueToken
             $params['username'] = $request->username ?: $request->email;
         }
         $request->request->add($params);
-        $proxy = Request::create(config('passport.admin.url'), 'POST');
+        $proxy = Request::create((string)config('passport.admin.url'), 'POST');
         return Route::dispatch($proxy);
     }
 }

@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Iosum\AdminAuth\Database\Seeds;
 
 use Iosum\AdminAuth\Models\Admin;

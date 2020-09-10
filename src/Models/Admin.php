@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Iosum\AdminAuth\Models;
 
@@ -71,7 +71,7 @@ class Admin extends Authenticatable
      * Accessor
      * @return string
      */
-    public function getFullNameAttribute()
+    public function getFullNameAttribute(): string
     {
         return ucwords($this->first_name . ' ' . $this->last_name);
     }
