@@ -625,12 +625,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:rjiosum/iosum.git",
-                "reference": "80925b519fc9356504b7bf29433fbee5ca36063b"
+                "reference": "8557eae9f3c636a78993802cac3db44882e492e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rjiosum/iosum/zipball/80925b519fc9356504b7bf29433fbee5ca36063b",
-                "reference": "80925b519fc9356504b7bf29433fbee5ca36063b",
+                "url": "https://api.github.com/repos/rjiosum/iosum/zipball/8557eae9f3c636a78993802cac3db44882e492e8",
+                "reference": "8557eae9f3c636a78993802cac3db44882e492e8",
                 "shasum": ""
             },
             "type": "library",
@@ -660,7 +660,7 @@
                 "source": "https://github.com/rjiosum/iosum/tree/base",
                 "issues": "https://github.com/rjiosum/iosum/issues"
             },
-            "time": "2020-09-09T12:25:24+00:00"
+            "time": "2020-09-10T11:59:33+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -801,16 +801,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.28.0",
+            "version": "v7.28.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5d3b4e3e62294716e3c810be3d2eb1375685b87d"
+                "reference": "f7493ab717ca2a9598b1db2d6a3bae8ac8c755e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5d3b4e3e62294716e3c810be3d2eb1375685b87d",
-                "reference": "5d3b4e3e62294716e3c810be3d2eb1375685b87d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f7493ab717ca2a9598b1db2d6a3bae8ac8c755e8",
+                "reference": "f7493ab717ca2a9598b1db2d6a3bae8ac8c755e8",
                 "shasum": ""
             },
             "require": {
@@ -955,7 +955,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-09-08T15:10:40+00:00"
+            "time": "2020-09-09T15:02:46+00:00"
         },
         {
             "name": "laravel/passport",
