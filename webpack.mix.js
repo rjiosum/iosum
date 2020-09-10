@@ -1,23 +1,30 @@
 const mix = require('laravel-mix');
+const del = require('del');
 
-const publicPath = 'public/backend/theme01';
+const assetsPath = 'resources/assets/';
+const themePath = 'backend/theme01/';
+
+const publicPath = 'public/';
 
 mix.setPublicPath(publicPath);
+
 
 mix.webpackConfig({
     resolve: {
         extensions: ['.js', '.json', '.jxs', '.vue'],
         alias: {
-            '@': path.resolve(__dirname, 'resources/assets/js/')
+            '@': path.resolve(__dirname, assetsPath + 'js/')
         }
     },
-    output:{
-        chunkFilename: 'js/[id].[chunkhash].js'
+    output: {
+        chunkFilename: themePath + 'js/[id].[chunkhash].js'
     }
 });
 
+
 //backend
-mix.js('resources/assets/js/app.js', publicPath + '/js')
-    .sass('resources/assets/sass/app.scss', publicPath + '/css')
+mix.js(assetsPath  + 'js/app.js', publicPath + themePath + 'js')
+    .sass(assetsPath + 'sass/app.scss', publicPath + themePath + 'css')
     .version();
-mix.copy('resources/assets/images', publicPath + '/images');
+
+mix.copyDirectory(assetsPath + 'images', publicPath + themePath + 'images');

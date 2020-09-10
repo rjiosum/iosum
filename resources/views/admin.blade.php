@@ -16,8 +16,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-    <link href="{{ asset(config('settings.backend.theme').'/css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset( config('settings.backend.theme') .'/js/app.js') }}" defer></script>
+    <link href="{{ mix(config('settings.backend.theme').'/css/app.css') }}" rel="stylesheet">
+    <script src="{{ mix( config('settings.backend.theme') .'/js/app.js') }}" defer></script>
 </head>
 <body>
 <div id="app">
