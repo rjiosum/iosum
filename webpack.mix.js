@@ -1,13 +1,15 @@
+const _ = require('lodash');
+const jsonFile = require('jsonfile');
 const mix = require('laravel-mix');
-const del = require('del');
 
 const assetsPath = 'resources/assets/';
-const themePath = 'backend/theme01/';
+const themePath = '/backend/theme01/';
+const publicPath = 'public/backend/theme01/';
 
-const publicPath = 'public/';
+const mixManifest = publicPath + '/mix-manifest.json';
 
 mix.setPublicPath(publicPath);
-
+mix.setResourceRoot('../');
 
 mix.webpackConfig({
     resolve: {
@@ -17,14 +19,27 @@ mix.webpackConfig({
         }
     },
     output: {
-        chunkFilename: themePath + 'js/[id].[chunkhash].js'
+        publicPath : themePath,
+        chunkFilename: 'js/chunks/[id].[chunkhash].js'
     }
 });
 
 
-//backend
-mix.js(assetsPath  + 'js/app.js', publicPath + themePath + 'js')
-    .sass(assetsPath + 'sass/app.scss', publicPath + themePath + 'css')
+mix.js(assetsPath  + 'js/app.js', publicPath + 'js')
+    .sass(assetsPath + 'sass/app.scss', publicPath + 'css')
     .version();
 
-mix.copyDirectory(assetsPath + 'images', publicPath + themePath + 'images');
+mix.copyDirectory(assetsPath + 'images', publicPath + 'images');
+
+mix.then(() => {
+    jsonFile.readFile(mixManifest, (err, obj) => {
+        const newJson = {};
+        _.forIn(obj, (value, key) => {
+            const newKey = _.trimEnd(themePath, '/') + key;
+            newJson[newKey] = value
+        });
+        jsonFile.writeFile(mixManifest, newJson, { spaces: 4 }, (err) => {
+            if (err) console.error(err)
+        });
+    });
+});

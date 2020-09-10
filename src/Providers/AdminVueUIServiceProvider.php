@@ -28,6 +28,8 @@ class AdminVueUIServiceProvider extends BaseServiceProvider
                 $this->dirPath(__DIR__).'public' => public_path(),
             ], 'admin-vue-ui-assets');
         }
+
+        //$this->loadViewsFrom($this->dirPath(__DIR__).'resources/views', 'admin-vue-ui');
     }
 
     /**
