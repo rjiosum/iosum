@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{19:function(e,n,t){"use strict";t.r(n);var u={name:"Logout",created:function(){EventBus.$emit("kick")}},c=t(1),i=Object(c.a)(u,(function(){var e=this.$createElement;return(this._self._c||e)("div")}),[],!1,null,null,null);n.default=i.exports}}]);

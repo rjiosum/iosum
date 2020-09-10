@@ -1,6 +1,6 @@
 {
-    "name": "iosum/admin-ui",
-    "description": "admin ui pkg",
+    "name": "iosum/admin-vue-ui",
+    "description": "admin vue ui pkg",
     "type": "library",
     "license": "MIT",
     "authors": [{
@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Iosum\\AdminUI\\": "src/"
+            "Iosum\\AdminVueUI\\": "src/"
         }
     },
     "config": {
@@ -23,7 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Iosum\\AdminUI\\Providers\\AdminUIServiceProvider"
+                "Iosum\\AdminVueUI\\Providers\\AdminVueUIServiceProvider"
             ]
         }
     },

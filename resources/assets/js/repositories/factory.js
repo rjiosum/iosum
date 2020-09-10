@@ -4,9 +4,9 @@ import Common from "./common";
 import User from "./user";
 import AdminNavigation from "./admin-navigation";
 
-const auth = Auth(window.axios)('/api/admin/auth');
-const user = User(window.axios)('/api/admin/user');
-const nav = AdminNavigation(window.axios)('/api/admin/navigation');
+const auth = Auth(window.axios)('/admin/auth');
+const user = User(window.axios)('/admin/user');
+const nav = AdminNavigation(window.axios)('/admin/navigation');
 
 const CommonRepository = Common(window.axios);
 

@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Iosum\AdminUI\Providers;
+namespace Iosum\AdminVueUI\Providers;
 
 
 use Illuminate\Http\Request;
-use Iosum\AdminUI\Console\InstallCommand;
+use Iosum\AdminVueUI\Console\InstallCommand;
 use Iosum\Base\Providers\BaseServiceProvider;
 
 
-class AdminUIServiceProvider extends BaseServiceProvider
+class AdminVueUIServiceProvider extends BaseServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -21,15 +21,13 @@ class AdminUIServiceProvider extends BaseServiceProvider
             $theme = config('settings.backend.theme');
 
             $this->publishes([
-                $this->dirPath(__DIR__).'resources/views' => base_path('resources/backend/'.$theme.'/views'),
-            ], 'views');
+                $this->dirPath(__DIR__).'resources/views' => resource_path($theme.'/views'),
+            ], 'admin-vue-ui-views');
 
             $this->publishes([
-                $this->dirPath(__DIR__).'public' => public_path('backend/'.$theme),
-            ], 'admin-assets');
+                $this->dirPath(__DIR__).'public' => public_path(),
+            ], 'admin-vue-ui-assets');
         }
-
-        $this->loadViewsFrom($this->dirPath(__DIR__).'resources/views', 'admin');
     }
 
     /**
