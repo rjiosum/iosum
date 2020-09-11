@@ -2,39 +2,38 @@
 
 namespace Iosum\AdminVueUI\Providers;
 
-
-use Illuminate\Http\Request;
+use Illuminate\Support\ServiceProvider;
 use Iosum\AdminVueUI\Console\InstallCommand;
-use Iosum\Base\Providers\BaseServiceProvider;
+use Iosum\Base\Traits\BaseProvider;
 
 
-class AdminVueUIServiceProvider extends BaseServiceProvider
+class AdminVueUIServiceProvider extends ServiceProvider
 {
+    use BaseProvider;
+
     /**
      * Bootstrap any application services.
-     * @param Request $request
+     *
      */
-    public function boot(Request $request): void
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
 
             $theme = config('settings.backend.theme');
 
             $this->publishes([
-                $this->dirPath(__DIR__).'resources/views' => resource_path($theme.'/views'),
+                $this->dirPath(__DIR__) . 'resources/views' => resource_path($theme . '/views'),
             ], 'admin-vue-ui-views');
 
             $this->publishes([
-                $this->dirPath(__DIR__).'public' => public_path(),
+                $this->dirPath(__DIR__) . 'public' => public_path(),
             ], 'admin-vue-ui-assets');
-        }
 
-        //$this->loadViewsFrom($this->dirPath(__DIR__).'resources/views', 'admin-vue-ui');
+        }
     }
 
     /**
      * Register any application services.
-     *
      *
      */
     public function register(): void
