@@ -7,7 +7,6 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Iosum\Base\Traits\BaseProvider;
 
-
 class AdminAuthServiceProvider extends ServiceProvider
 {
     use BaseProvider;
@@ -29,10 +28,12 @@ class AdminAuthServiceProvider extends ServiceProvider
 
         $router = $this->app->make(Router::class);
         $router->middlewareGroup(
-            'api.admin', [
+            'api.admin',
+            [
             \Iosum\AdminAuth\Http\Middleware\AdminAuthHeader::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ]);
+        ]
+        );
     }
 
     /**
@@ -43,13 +44,13 @@ class AdminAuthServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            $this->dirPath(__DIR__) . 'config/passport.php', 'passport'
+            $this->dirPath(__DIR__) . 'config/passport.php',
+            'passport'
         );
 
         $this->mergeConfigFrom(
-            $this->dirPath(__DIR__) . 'config/auth.php', 'auth'
+            $this->dirPath(__DIR__) . 'config/auth.php',
+            'auth'
         );
     }
-
-
 }

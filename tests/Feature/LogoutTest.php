@@ -6,7 +6,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Iosum\AdminAuth\Tests\TestCase;
 use Laravel\Passport\Passport;
 
-
 class LogoutTest extends TestCase
 {
     use RefreshDatabase;
@@ -23,11 +22,11 @@ class LogoutTest extends TestCase
         $this->postJson(route('admin.logout'))
             ->assertJson([
                 "status" => true,
-                'message' => trans('admin-auth::auth.logout')
+                'message' => trans('admin-auth::auth.logout'),
             ])
             ->assertJsonStructure([
                 'status',
-                'message'
+                'message',
             ])
             ->assertCookieExpired(config('passport.admin.cookie.name'))
             ->assertStatus(200);

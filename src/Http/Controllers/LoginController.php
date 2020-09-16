@@ -2,17 +2,16 @@
 
 namespace Iosum\AdminAuth\Http\Controllers;
 
-
-use Iosum\AdminAuth\Http\Resources\Shared\AdminResource;
-use Iosum\AdminAuth\Traits\IssueToken;
-
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Validation\ValidationException;
+use Iosum\AdminAuth\Http\Resources\Shared\AdminResource;
+use Iosum\AdminAuth\Traits\IssueToken;
 use Iosum\Base\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Passport\Client;
 
 class LoginController extends Controller
@@ -65,7 +64,6 @@ class LoginController extends Controller
         $cookie = Cookie::make($param['name'], $param['value'], $param['minutes'], $param['path'], $param['domain'], $param['secure'], $param['httponly'], $param['raw'], $param['samesite']);
 
         return $this->responseJson(true, new AdminResource($user), trans('admin-auth::auth.login'), Response::HTTP_OK)->withCookie($cookie);
-
     }
 
     /**
@@ -83,7 +81,7 @@ class LoginController extends Controller
             'secure' => config('passport.admin.cookie.secure'),
             'httponly' => config('passport.admin.cookie.httponly'),
             'raw' => config('passport.admin.cookie.raw'),
-            'samesite' => config('passport.admin.cookie.samesite')
+            'samesite' => config('passport.admin.cookie.samesite'),
         ];
     }
 

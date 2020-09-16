@@ -7,7 +7,6 @@ use Laravel\Passport\Passport;
 use Laravel\Passport\PassportServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
-
 class TestCase extends Orchestra
 {
     public $mockConsoleOutput = false;
@@ -27,7 +26,6 @@ class TestCase extends Orchestra
         Passport::routes(function ($router) {
             $router->forAccessTokens();
         });
-
     }
 
     protected function getPackageProviders($app)

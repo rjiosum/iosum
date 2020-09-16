@@ -5,7 +5,6 @@ namespace Iosum\AdminAuth\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-
 class AdminAuthHeader
 {
     /**
@@ -17,12 +16,13 @@ class AdminAuthHeader
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->bearerToken()) {
+        if (! $request->bearerToken()) {
             if ($request->hasCookie(config('passport.admin.cookie.name'))) {
                 $token = $request->cookie(config('passport.admin.cookie.name'));
                 $request->headers->add(['Authorization' => 'Bearer ' . $token]);
             }
         }
+
         return $next($request);
     }
 }

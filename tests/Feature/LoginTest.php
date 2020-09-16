@@ -2,10 +2,9 @@
 
 namespace Iosum\AdminAuth\Tests\Feature;
 
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Iosum\AdminAuth\Tests\TestCase;
-
 
 class LoginTest extends TestCase
 {
@@ -14,22 +13,22 @@ class LoginTest extends TestCase
     /** @test */
     public function canLoginAdminWithValidCredentials(): void
     {
-        $user = $this->create('Iosum\AdminAuth\Models\Admin', ['email'=>'raj@demo.com']);
+        $user = $this->create('Iosum\AdminAuth\Models\Admin', ['email' => 'raj@demo.com']);
 
         $this->postJson(route('admin.login'), [
-            'email' => $user->email, 'password' => 'password'
+            'email' => $user->email, 'password' => 'password',
         ])
             ->assertJson([
                 "status" => true,
                 "data" => [
                     "name" => $user->first_name . ' ' . $user->last_name,
-                    "email" => $user->email
+                    "email" => $user->email,
                 ],
-                "message" => trans('admin-auth::auth.login')
+                "message" => trans('admin-auth::auth.login'),
             ])
             ->assertJsonStructure([
                 'status',
-                'data' => ['id', 'uuid', 'first_name', 'last_name', 'name', 'email', 'avatar']
+                'data' => ['id', 'uuid', 'first_name', 'last_name', 'name', 'email', 'avatar'],
             ])
             ->assertCookie(config('passport.admin.cookie.name'))
             ->assertStatus(200);
@@ -42,17 +41,17 @@ class LoginTest extends TestCase
 
         $this->postJson(route('admin.login'), [
             'email' => $user->email,
-            'password' => 'wrong'
+            'password' => 'wrong',
         ])
             ->assertJson([
                 "message" => "The given data was invalid.",
                 "errors" => [
-                    "email" => [trans('auth.failed')]
-                ]
+                    "email" => [trans('auth.failed')],
+                ],
             ])
             ->assertJsonStructure([
                 'message',
-                'errors'
+                'errors',
             ])
             ->assertStatus(422);
     }
