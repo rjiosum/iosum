@@ -53,13 +53,12 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_PASSWORD: root
 
-      env:
-        DB_PORT: ${{ job.services.mysql.ports[3306] }}
-        DB_PASSWORD: root
-
-        - uses: actions/upload-artifact@v2
-          if: failure()
-          with:
-            name: log-artifact
-            path: log/laravel.log
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: log-artifact
+          path: log/laravel.log
