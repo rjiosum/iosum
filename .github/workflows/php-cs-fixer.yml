@@ -2,7 +2,8 @@ name: Check & fix styling
 
 on:
   push:
-    branches: [admin-auth]
+    branches:
+      - 'iosum/admin-auth'
 
 jobs:
   php-cs-fixer:
