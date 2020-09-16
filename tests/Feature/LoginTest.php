@@ -23,7 +23,7 @@ class LoginTest extends TestCase
 
         dump($res);
 
-           $res->assertJson([
+        $res->assertJson([
                 "status" => true,
                 "data" => [
                     "name" => $user->first_name . ' ' . $user->last_name,
