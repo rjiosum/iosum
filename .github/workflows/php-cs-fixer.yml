@@ -2,7 +2,7 @@ name: Check & fix styling
 
 on:
   push:
-    branches: '*'
+    branches: [admin-auth]
 
 jobs:
   php-cs-fixer:
@@ -13,10 +13,6 @@ jobs:
         uses: actions/checkout@v2
         #with:
           #ref: ${{ github.head_ref }}
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
-        id: extract_branch
 
       - name: Run PHP CS Fixer
         uses: docker://oskarstark/php-cs-fixer-ga
