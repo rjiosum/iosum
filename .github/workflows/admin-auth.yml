@@ -48,8 +48,18 @@ jobs:
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
+      - name: Directory Permissions
+        run: chmod -R 777 log
+
       - name: Execute tests
         run: vendor/bin/phpunit
+
+      - name: Log Failure
+        uses: actions/upload-artifact@v2
+        if: failure()
+          with:
+            path: log/laravel.log
+
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
           DB_PASSWORD: root

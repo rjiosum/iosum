@@ -15,10 +15,15 @@ class LoginTest extends TestCase
     {
         $user = $this->create('Iosum\AdminAuth\Models\Admin', ['email' => 'raj@demo.com']);
 
-        $this->postJson(route('admin.login'), [
+        dump($user);
+
+        $res = $this->postJson(route('admin.login'), [
             'email' => $user->email, 'password' => 'password',
-        ])
-            ->assertJson([
+        ]);
+
+        dump($res);
+
+           $res->assertJson([
                 "status" => true,
                 "data" => [
                     "name" => $user->first_name . ' ' . $user->last_name,

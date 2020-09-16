@@ -22,7 +22,7 @@ class TestCase extends Orchestra
 
         $this->artisan('passport:install -q');
         $this->artisan('passport:client --password --provider=admins -n -q');
-        
+
         Passport::routes(function ($router) {
             $router->forAccessTokens();
         });
