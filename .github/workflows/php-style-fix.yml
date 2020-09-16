@@ -1,9 +1,6 @@
 name: PHP style fixing
 
-on:
-  push:
-    branches:
-      - 'iosum/admin-auth'
+on: [push]
 
 jobs:
   php-cs-fixer:
@@ -12,8 +9,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
+        #with:
+          #ref: ${{ github.head_ref }}
+        if: github.ref == 'refs/heads/admin-auth'
 
       - name: Run PHP CS Fixer
         uses: docker://oskarstark/php-cs-fixer-ga
