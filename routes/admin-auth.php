@@ -21,5 +21,6 @@ Route::group([
     Route::group(['prefix' => 'user'], function () {
         Route::get('/profile', 'ProfileController@index')->name('admin.profile');
     });
+    
 });
 
