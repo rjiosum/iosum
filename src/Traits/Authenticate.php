@@ -3,14 +3,12 @@
 
 namespace  Iosum\AdminAuth\Traits;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Validation\ValidationException;
 use Iosum\AdminAuth\Http\Resources\AdminResource;
-
 
 trait Authenticate
 {
@@ -97,7 +95,8 @@ trait Authenticate
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
+            $this->credentials($request),
+            $request->filled('remember')
         );
     }
 

@@ -3,8 +3,6 @@
 namespace Iosum\AdminAuth\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Iosum\AdminAuth\Models\Admin;
 use Iosum\AdminAuth\Tests\TestCase;
 
 class LoginTest extends TestCase
@@ -14,7 +12,6 @@ class LoginTest extends TestCase
     /** @test */
     public function canLoginAdminWithValidCredentials(): void
     {
-
         $user = $this->create('Iosum\AdminAuth\Models\Admin', ['email' => 'raj@demo.com']);
 
         $this->postJson(route('admin.login'), [

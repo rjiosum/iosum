@@ -2,11 +2,9 @@
 
 namespace Iosum\AdminAuth\Http\Controllers;
 
-
 use Iosum\AdminAuth\Traits\Authenticate;
 use Iosum\Base\Http\Controllers\Controller;
 use Laravel\Passport\Client;
-
 
 class LoginController extends Controller
 {
