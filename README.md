@@ -1,11 +1,16 @@
 # Laravel packages 
 
+> Requirements: php 7.3, laravel v8
+
 - Base
 - Api Exception
 - Admin Auth
 - Admin Vue UI
+
+### TODO's
 - Admin Nested Backend Categories
 - Taxonomy
+- Product Feed
 - Product
 - Product Attributes & Combos
 - Cart
