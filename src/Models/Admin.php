@@ -2,16 +2,24 @@
 
 namespace Iosum\AdminAuth\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Iosum\AdminAuth\Database\Factories\AdminFactory;
 use Iosum\Base\Facades\Helper;
 use Laravel\Passport\HasApiTokens;
 
+/**
+ * @property mixed first_name
+ * @property mixed last_name
+ * @property mixed avatar
+ */
+
 class Admin extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasFactory, HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -54,6 +62,11 @@ class Admin extends Authenticatable
         static::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
         });
+    }
+
+    protected static function newFactory()
+    {
+        return AdminFactory::new();
     }
 
     /**

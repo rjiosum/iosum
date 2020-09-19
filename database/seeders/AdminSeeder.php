@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Iosum\AdminAuth\Database\Seeds;
+namespace Iosum\AdminAuth\Database\Seeders;
 
 use Iosum\AdminAuth\Models\Admin;
 use Illuminate\Database\Seeder;
@@ -14,13 +14,13 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        factory(Admin::class)->create([
+        Admin::factory()->create([
             'first_name' => 'John',
             'last_name' => 'Doe',
             'email' => 'john@gmail.com',
         ]);
 
-        factory(Admin::class)->create([
+        Admin::factory()->create([
             'first_name' => 'Oliver',
             'last_name' => 'Bernard',
             'email' => 'oli@gmail.com',

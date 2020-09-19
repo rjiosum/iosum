@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Iosum\AdminAuth\Http\Resources\Shared;
+namespace Iosum\AdminAuth\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

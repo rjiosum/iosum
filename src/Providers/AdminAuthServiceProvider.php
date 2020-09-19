@@ -20,8 +20,6 @@ class AdminAuthServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom($this->dirPath(__DIR__) . 'routes/admin-auth.php');
 
-        $this->loadFactoriesFrom($this->dirPath(__DIR__) . 'database/factories');
-
         $this->loadMigrationsFrom($this->dirPath(__DIR__) . 'database/migrations');
 
         $this->loadTranslationsFrom($this->dirPath(__DIR__) . 'resources/lang', 'admin-auth');

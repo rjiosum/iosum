@@ -16,7 +16,6 @@ class TestCase extends Orchestra
         parent::setUp();
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->withFactories(__DIR__.'/../database/factories');
 
         $this->artisan('migrate:fresh');
 
@@ -42,16 +41,16 @@ class TestCase extends Orchestra
 
     public function create(string $class, array $attributes = [], int $times = null)
     {
-        return factory($class, $times)->create($attributes);
+        return $class::factory($times)->create($attributes);
     }
 
-    public function make(string $class, array $attributes = [], int $times = null)
+    public function make(string $class, array $attributes = [], int $times = 1)
     {
-        return factory($class, $times)->make($attributes);
+        return $class::factory($times)->make($attributes);
     }
 
-    public function raw(string $class, array $attributes = [], int $times = null)
+    public function raw(string $class, array $attributes = [], int $times = 1)
     {
-        return factory($class, $times)->raw($attributes);
+        return $class::factory($times)->raw($attributes);
     }
 }
