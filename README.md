@@ -6,9 +6,9 @@
 - Api Exception
 - Admin Auth
 - Admin Vue UI
+- Admin Navigation
 
 ### TODO's
-- Admin Nested Backend Categories
 - Taxonomy
 - Product Feed
 - Product
