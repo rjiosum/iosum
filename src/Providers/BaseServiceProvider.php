@@ -4,18 +4,12 @@ namespace Iosum\Base\Providers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
-use Iosum\Base\Repositories\BaseRepository;
-use Iosum\Base\Repositories\BaseRepositoryInterface;
 use Iosum\Base\Services\HelperService;
 use Iosum\Base\Traits\BaseProvider;
 
 class BaseServiceProvider extends ServiceProvider
 {
     use BaseProvider;
-
-    protected array $repositories = [
-        BaseRepositoryInterface::class => BaseRepository::class
-    ];
 
     /**
      * Register any application services.
@@ -24,10 +18,6 @@ class BaseServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        foreach ($this->repositories as $interface => $implementation) {
-            $this->app->bind($interface, $implementation);
-        }
-
         $this->app->bind('HelperService', function () {
             return new HelperService();
         });
@@ -44,6 +34,8 @@ class BaseServiceProvider extends ServiceProvider
      */
     public function boot(Request $request): void
     {
+        $this->loadTranslationsFrom($this->dirPath(__DIR__) . 'resources/lang', 'base');
+
         $collection = $request->segments();
 
         $route = config('settings.backend.route');
