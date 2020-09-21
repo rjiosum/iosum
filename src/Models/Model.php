@@ -24,14 +24,8 @@ class Model extends BaseModel
         });
     }
 
-    /**
-     * Retrieve the model for a bound value.
-     *
-     * @param mixed $value
-     * @param null $field
-     * @return BaseModel|null
-     */
-    public function resolveRouteBinding($value, $field = null)
+
+    /*public function resolveRouteBinding($value, $field = null)
     {
         $query = $this->where(DB::raw('cast(id as char)'), $value);
 
@@ -42,7 +36,7 @@ class Model extends BaseModel
             $query->orWhere('slug', $value);
         }
         return $query->first() ?? abort(404);
-    }
+    }*/
 
     private function columnExists(string $columnName)
     {
