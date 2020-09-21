@@ -26,7 +26,7 @@ class AdminNavigationTreeResource extends JsonResource
             'updated_at' => $this->updated_at->format('d-m-Y H:i:s'),
             'created' => $this->created_at->diffForHumans(),
             'updated' => $this->updated_at->diffForHumans(),
-            'children' => AdminNavigationTreeResource::collection($this->whenLoaded('children'))
+            'children' => AdminNavigationTreeResource::collection($this->whenLoaded('children')),
         ];
     }
 }

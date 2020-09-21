@@ -3,17 +3,15 @@
 
 namespace Iosum\AdminNav\Actions;
 
-
 use Iosum\AdminNav\Contracts\FindAdminNavigation as FindAdminNavigationInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
-
 
 class FindAdminNavigation implements FindAdminNavigationInterface
 {
     /**
      * @var AdminNavigation
      */
-    private  $adminNavigation;
+    private $adminNavigation;
 
     public function __construct(AdminNavigation $adminNavigation)
     {

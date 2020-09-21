@@ -32,5 +32,4 @@ class AdminNavigation extends Model
     {
         return $builder->orderBy('position', $direction);
     }
-
 }

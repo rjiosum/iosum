@@ -3,7 +3,6 @@
 
 namespace Iosum\AdminNav\Contracts;
 
-
 interface FetchAdminNavigation
 {
     /**

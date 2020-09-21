@@ -11,7 +11,7 @@ class DeleteAdminNavigation implements DeleteAdminNavigationInterface
     /**
      * @var AdminNavigation
      */
-    private  $adminNavigation;
+    private $adminNavigation;
 
     public function __construct(AdminNavigation $adminNavigation)
     {
@@ -24,7 +24,7 @@ class DeleteAdminNavigation implements DeleteAdminNavigationInterface
      */
     public function deleteAdminNavigation(int $id)
     {
-        return DB::transaction(function () use(&$id){
+        return DB::transaction(function () use (&$id) {
             return $this->adminNavigation->where('id', $id)->delete();
         });
     }

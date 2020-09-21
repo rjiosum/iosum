@@ -5,13 +5,12 @@ namespace Iosum\AdminNav\Actions;
 use Iosum\AdminNav\Contracts\FetchAdminNavigationTree as FetchAdminNavigationTreeInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
 
-
 class FetchAdminNavigationTree implements FetchAdminNavigationTreeInterface
 {
     /**
      * @var AdminNavigation
      */
-    private  $adminNavigation;
+    private $adminNavigation;
 
     public function __construct(AdminNavigation $adminNavigation)
     {

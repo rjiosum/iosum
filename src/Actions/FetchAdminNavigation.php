@@ -3,17 +3,15 @@
 
 namespace Iosum\AdminNav\Actions;
 
-
 use Iosum\AdminNav\Contracts\FetchAdminNavigation as FetchAdminNavigationInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
-
 
 class FetchAdminNavigation implements FetchAdminNavigationInterface
 {
     /**
      * @var AdminNavigation
      */
-    private  $adminNavigation;
+    private $adminNavigation;
 
     public function __construct(AdminNavigation $adminNavigation)
     {

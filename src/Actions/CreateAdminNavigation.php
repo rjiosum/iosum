@@ -11,7 +11,7 @@ class CreateAdminNavigation implements CreateAdminNavigationInterface
     /**
      * @var AdminNavigation
      */
-    private  $adminNavigation;
+    private $adminNavigation;
 
     public function __construct(AdminNavigation $adminNavigation)
     {
@@ -29,9 +29,10 @@ class CreateAdminNavigation implements CreateAdminNavigationInterface
         $position = ($position) ? $position + 1 : 1;
         $merged = $collection->merge(['position' => $position]);
 
-        return DB::transaction(function () use(&$merged){
+        return DB::transaction(function () use (&$merged) {
             $nav = $this->adminNavigation->create($merged->all());
             $nav->save();
+
             return $nav;
         }, 5);
     }

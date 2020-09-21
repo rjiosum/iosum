@@ -2,9 +2,10 @@
 
 namespace Iosum\AdminNav\Tests\Feature;
 
-use Illuminate\Support\Str;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-use Illuminate\Foundation\Testing\{WithFaker, RefreshDatabase};
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Str;
 use Iosum\AdminNav\Database\Seeders\AdminNavigationSeeder;
 use Iosum\AdminNav\Tests\TestCase;
 use Laravel\Passport\Passport;
@@ -40,9 +41,9 @@ class AdminNavigationTest extends TestCase
                         "updated_at",
                         "created",
                         "updated",
-                        "children"
-                    ]
-                ]
+                        "children",
+                    ],
+                ],
             ]);
     }
 
@@ -66,13 +67,13 @@ class AdminNavigationTest extends TestCase
                         "updated_at",
                         "created",
                         "updated",
-                    ]
+                    ],
                 ],
                 "links" => ["first", "last", "prev", "next"],
                 "meta" => [
                     "current_page", "last_page", "from", "to",
-                    "path", "per_page", "total"
-                ]
+                    "path", "per_page", "total",
+                ],
             ]);
 
         //Sub Category
@@ -90,13 +91,13 @@ class AdminNavigationTest extends TestCase
                         "updated_at",
                         "created",
                         "updated",
-                    ]
+                    ],
                 ],
                 "links" => ["first", "last", "prev", "next"],
                 "meta" => [
                     "current_page", "last_page", "from", "to",
-                    "path", "per_page", "total"
-                ]
+                    "path", "per_page", "total",
+                ],
             ]);
     }
 
@@ -110,9 +111,9 @@ class AdminNavigationTest extends TestCase
                 'message' => 'The given data was invalid.',
                 'errors' => [
                     'title' => [
-                        trans('validation.required', ['attribute' => 'title'])
-                    ]
-                ]
+                        trans('validation.required', ['attribute' => 'title']),
+                    ],
+                ],
             ]);
 
         //title can have max 50 character
@@ -122,9 +123,9 @@ class AdminNavigationTest extends TestCase
                 'message' => 'The given data was invalid.',
                 'errors' => [
                     'title' => [
-                        trans('validation.max.string', ['attribute' => 'title', 'max' => 50])
-                    ]
-                ]
+                        trans('validation.max.string', ['attribute' => 'title', 'max' => 50]),
+                    ],
+                ],
             ]);
 
         //route field is required
@@ -134,9 +135,9 @@ class AdminNavigationTest extends TestCase
                 'message' => 'The given data was invalid.',
                 'errors' => [
                     'route' => [
-                        trans('validation.required', ['attribute' => 'route'])
-                    ]
-                ]
+                        trans('validation.required', ['attribute' => 'route']),
+                    ],
+                ],
             ]);
     }
 
@@ -159,20 +160,20 @@ class AdminNavigationTest extends TestCase
                     "created",
                     "updated",
                 ],
-                "message"
+                "message",
             ])
             ->assertJson([
                 "status" => true,
                 "data" => [
                     "title" => $data['title'],
-                    "route" => $data['route']
+                    "route" => $data['route'],
                 ],
-                "message" => trans('base::response.success.create', ['attribute'=> 'Navigation'])
+                "message" => trans('base::response.success.create', ['attribute' => 'Navigation']),
             ]);
 
         $this->assertDatabaseHas('admin_navigations', [
             "title" => $data["title"],
-            "route" => $data['route']
+            "route" => $data['route'],
         ]);
     }
 
@@ -188,9 +189,9 @@ class AdminNavigationTest extends TestCase
                 'message' => 'The given data was invalid.',
                 'errors' => [
                     'title' => [
-                        trans('validation.required', ['attribute' => 'title'])
-                    ]
-                ]
+                        trans('validation.required', ['attribute' => 'title']),
+                    ],
+                ],
             ]);
 
         //title can have max 50 character
@@ -200,9 +201,9 @@ class AdminNavigationTest extends TestCase
                 'message' => 'The given data was invalid.',
                 'errors' => [
                     'title' => [
-                        trans('validation.max.string', ['attribute' => 'title', 'max' => 50])
-                    ]
-                ]
+                        trans('validation.max.string', ['attribute' => 'title', 'max' => 50]),
+                    ],
+                ],
             ]);
 
         //route field is required
@@ -212,9 +213,9 @@ class AdminNavigationTest extends TestCase
                 'message' => 'The given data was invalid.',
                 'errors' => [
                     'route' => [
-                        trans('validation.required', ['attribute' => 'route'])
-                    ]
-                ]
+                        trans('validation.required', ['attribute' => 'route']),
+                    ],
+                ],
             ]);
     }
 
@@ -230,8 +231,10 @@ class AdminNavigationTest extends TestCase
     {
         $nav = $this->create('Iosum\AdminNav\Models\AdminNavigation');
 
-        $this->patchJson(route('admin.nav.update', ['nav' => $nav]),
-            $data = $this->data(['title' => 'This is a new title']))
+        $this->patchJson(
+            route('admin.nav.update', ['nav' => $nav]),
+            $data = $this->data(['title' => 'This is a new title'])
+        )
 
              ->assertJson([
                 'status' => true,
@@ -239,7 +242,7 @@ class AdminNavigationTest extends TestCase
                     'title' => $data['title'],
 
                 ],
-                'message' => trans('base::response.success.update', ['attribute'=> 'Navigation'])
+                'message' => trans('base::response.success.update', ['attribute' => 'Navigation']),
             ])
             ->assertJsonStructure([
                 'status',
@@ -254,12 +257,12 @@ class AdminNavigationTest extends TestCase
                     "created",
                     "updated",
                 ],
-                'message'
+                'message',
             ])
             ->assertStatus(202);
 
         $this->assertDatabaseHas('admin_navigations', [
-            'title' => $data['title']
+            'title' => $data['title'],
         ]);
     }
 
@@ -278,10 +281,10 @@ class AdminNavigationTest extends TestCase
         $this->deleteJson(route('admin.nav.destroy', ['nav' => $nav]))
             ->assertStatus(200)
             ->assertJsonStructure([
-                'status', 'message'
+                'status', 'message',
             ])->assertJson([
                 'status' => true,
-                'message' => trans('base::response.success.delete', ['attribute'=> 'Navigation'])
+                'message' => trans('base::response.success.delete', ['attribute' => 'Navigation']),
             ]);
         $this->assertDatabaseMissing('admin_navigations', ['id' => $nav->id]);
     }
