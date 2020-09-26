@@ -1,5 +1,6 @@
 import {Factory} from '@/repositories/factory'
 import * as types from './mutation-types'
+
 const AuthRepository = Factory.get('auth')
 const UserRepository = Factory.get('user')
 
@@ -9,7 +10,7 @@ const state = () => ({
 
 const getters = {
     user(state){
-        return state.user
+         return state.user
     },
     isAuthenticated(state){
         return !!state.user
@@ -26,10 +27,11 @@ const mutations = {
 }
 
 const actions = {
-    async login({commit}, credentials){
+    async login({commit, dispatch}, credentials){
         const response = await AuthRepository.login(credentials)
         if(response.data.status){
             commit(types.LOGIN, response.data.data);
+            dispatch('navbar/getNavBar', {}, {root:true});
         }
         return response
     },

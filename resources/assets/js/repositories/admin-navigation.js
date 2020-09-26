@@ -14,5 +14,10 @@ export default $axios => resource => ({
 
     delete(id) {
         return $axios.delete(`${resource}/${id}`)
+    },
+
+    tree(){
+        return $axios.get(`${resource}/tree`);
     }
+
 })

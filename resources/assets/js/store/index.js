@@ -6,6 +6,7 @@ import drawer from './modules/core/drawer'
 import errors from './modules/errors/server-errors'
 import notify from "./modules/notify/notify"
 import auth from "./modules/auth/auth"
+import navbar from "./modules/navbar/navbar"
 
 Vue.use(Vuex)
 
@@ -18,7 +19,8 @@ export default new Vuex.Store({
         drawer,
         errors,
         notify,
-        auth
+        auth,
+        navbar
     },
     plugins: [dataState],
 })

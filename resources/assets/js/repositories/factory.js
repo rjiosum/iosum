@@ -6,7 +6,7 @@ import AdminNavigation from "./admin-navigation";
 
 const auth = Auth(window.axios)('/admin/auth');
 const user = User(window.axios)('/admin/user');
-const nav = AdminNavigation(window.axios)('/admin/navigation');
+const nav = AdminNavigation(window.axios)('/admin/admin-nav');
 
 const CommonRepository = Common(window.axios);
 
