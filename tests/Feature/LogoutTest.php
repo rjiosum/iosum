@@ -3,6 +3,7 @@
 namespace Iosum\AdminAuth\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Response;
 use Iosum\AdminAuth\Tests\TestCase;
 use Laravel\Passport\Passport;
 
@@ -13,7 +14,7 @@ class LogoutTest extends TestCase
     /** @test */
     public function canLogoutAdmin(): void
     {
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
 
         $user = $this->create('Iosum\AdminAuth\Models\Admin');
 
@@ -29,6 +30,6 @@ class LogoutTest extends TestCase
                 'message',
             ])
             ->assertCookieExpired(config('passport.admin.cookie.name'))
-            ->assertStatus(200);
+            ->assertStatus(Response::HTTP_OK);
     }
 }

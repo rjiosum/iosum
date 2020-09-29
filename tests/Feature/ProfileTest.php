@@ -5,21 +5,21 @@ namespace Iosum\AdminAuth\Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 use Iosum\AdminAuth\Tests\TestCase;
+use Laravel\Passport\Passport;
 
-class LoginTest extends TestCase
+class ProfileTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    public function canLoginAdminWithValidCredentials(): void
+    public function canGetLoggedInAdminDetails(): void
     {
         //$this->withoutExceptionHandling();
 
-        $user = $this->create('Iosum\AdminAuth\Models\Admin', ['email' => 'raj@demo.com']);
+        $user = $this->create('Iosum\AdminAuth\Models\Admin');
+        Passport::actingAs($user, [], 'api:admin');
 
-        $this->postJson(route('admin.login'), [
-            'email' => $user->email, 'password' => 'password',
-        ])
+        $this->getJson(route('admin.profile'))
             ->assertJson([
                 "status" => true,
                 "data" => [
@@ -37,7 +37,7 @@ class LoginTest extends TestCase
                         "self" => route('admin.profile'),
                     ],
                 ],
-                "message" => trans('admin-auth::auth.login'),
+                "message" => "",
             ])
             ->assertJsonStructure([
                 "status",
@@ -58,31 +58,25 @@ class LoginTest extends TestCase
                 ],
                 "message"
             ])
-            ->assertCookie(config('passport.admin.cookie.name'))
             ->assertStatus(Response::HTTP_OK);
     }
 
     /** @test */
-    public function willNotLoginAdminWithInvalidCredentials(): void
+    public function willNotGetAdminDetailsIfAdminIsNotLoggedIn(): void
     {
         //$this->withoutExceptionHandling();
 
-        $user = $this->create('Iosum\AdminAuth\Models\Admin');
-
-        $this->postJson(route('admin.login'), [
-            'email' => $user->email,
-            'password' => 'wrong',
-        ])
+        $this->getJson(route('admin.profile'))
             ->assertJson([
-                "message" => "The given data was invalid.",
-                "errors" => [
-                    "email" => [trans('auth.failed')],
-                ],
+                "status" => false,
+                "data" => [],
+                "message" => "",
             ])
             ->assertJsonStructure([
-                'message',
-                'errors',
+                "status",
+                "data",
+                "message"
             ])
-            ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
+            ->assertStatus(Response::HTTP_PRECONDITION_FAILED);
     }
 }
