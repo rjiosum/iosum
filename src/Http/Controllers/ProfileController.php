@@ -4,7 +4,7 @@ namespace Iosum\AdminAuth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Iosum\AdminAuth\Http\Resources\Shared\AdminResource;
+use Iosum\AdminAuth\Http\Resources\AdminResource;
 use Iosum\Base\Http\Controllers\Controller;
 
 class ProfileController extends Controller

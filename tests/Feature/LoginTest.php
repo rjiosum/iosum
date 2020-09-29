@@ -12,6 +12,7 @@ class LoginTest extends TestCase
     /** @test */
     public function canLoginAdminWithValidCredentials(): void
     {
+        $this->withoutExceptionHandling();
         $user = $this->create('Iosum\AdminAuth\Models\Admin', ['email' => 'raj@demo.com']);
 
         $this->postJson(route('admin.login'), [
@@ -20,14 +21,40 @@ class LoginTest extends TestCase
             ->assertJson([
                 "status" => true,
                 "data" => [
-                    "name" => $user->first_name . ' ' . $user->last_name,
-                    "email" => $user->email,
+                    "data" => [
+                        "type" => "admin",
+                        "admin_id" => $user->uuid,
+                        "attributes" => [
+                            "first_name" => $user->first_name,
+                            "last_name" => $user->last_name,
+                            "name" => $user->first_name . " " . $user->last_name,
+                            "email" => $user->email
+                        ]
+                    ],
+                    "links" => [
+                        "self" => route('admin.profile'),
+                    ],
                 ],
                 "message" => trans('admin-auth::auth.login'),
             ])
             ->assertJsonStructure([
-                'status',
-                'data' => ['id', 'uuid', 'first_name', 'last_name', 'name', 'email', 'avatar'],
+                "status",
+                "data" => [
+                    "data" => [
+                        "type",
+                        "admin_id",
+                        "attributes" => [
+                            "first_name",
+                            "last_name",
+                            "name",
+                            "email"
+                        ]
+                    ],
+                    "links" => [
+                        "self"
+                    ],
+                ],
+                "message"
             ])
             ->assertCookie(config('passport.admin.cookie.name'))
             ->assertStatus(200);

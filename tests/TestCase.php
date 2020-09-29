@@ -3,6 +3,7 @@
 namespace Iosum\AdminAuth\Tests;
 
 use Iosum\AdminAuth\Providers\AdminAuthServiceProvider;
+use Iosum\Base\Providers\BaseServiceProvider;
 use Laravel\Passport\Passport;
 use Laravel\Passport\PassportServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -31,6 +32,7 @@ class TestCase extends Orchestra
     {
         return [
             AdminAuthServiceProvider::class,
+            BaseServiceProvider::class
         ];
     }
 
