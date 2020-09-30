@@ -3,7 +3,7 @@
 namespace Iosum\AdminNav\Actions;
 
 use Illuminate\Support\Facades\DB;
-use Iosum\AdminNav\Contracts\DeleteAdminNavigation as DeleteAdminNavigationInterface;
+use Iosum\AdminNav\Contracts\DeleteAdminNavigationInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
 
 class DeleteAdminNavigation implements DeleteAdminNavigationInterface

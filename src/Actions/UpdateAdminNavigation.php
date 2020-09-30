@@ -3,7 +3,7 @@
 namespace Iosum\AdminNav\Actions;
 
 use Illuminate\Support\Facades\DB;
-use Iosum\AdminNav\Contracts\UpdateAdminNavigation as UpdateAdminNavigationInterface;
+use Iosum\AdminNav\Contracts\UpdateAdminNavigationInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
 
 class UpdateAdminNavigation implements UpdateAdminNavigationInterface

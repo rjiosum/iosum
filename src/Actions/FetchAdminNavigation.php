@@ -3,7 +3,7 @@
 
 namespace Iosum\AdminNav\Actions;
 
-use Iosum\AdminNav\Contracts\FetchAdminNavigation as FetchAdminNavigationInterface;
+use Iosum\AdminNav\Contracts\FetchAdminNavigationInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
 
 class FetchAdminNavigation implements FetchAdminNavigationInterface

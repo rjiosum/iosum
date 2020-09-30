@@ -29,7 +29,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => $ip,
             'title' => 'Country',
-            'icon' => 'fa-autoprefixer',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -37,7 +37,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Currency',
-            'icon' => 'fa-autoprefixer',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -45,7 +45,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Vat',
-            'icon' => 'fa-autoprefixer',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -53,7 +53,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Out Of Stock Messages',
-            'icon' => 'fa-autoprefixer',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -61,7 +61,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Social Networking',
-            'icon' => 'fa-autoprefixer',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -69,7 +69,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Reference Prefix',
-            'icon' => 'fa-autoprefixer',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -77,7 +77,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Email Template',
-            'icon' => 'fa-autoprefixer',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -85,7 +85,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Watermark Image',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -93,7 +93,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Image Dimensions',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -113,7 +113,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Template',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -121,7 +121,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Site Logo',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -129,7 +129,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Home Page Banners',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -137,7 +137,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Static Pages',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -156,7 +156,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Merchant Info',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -164,7 +164,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Couriers',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -172,7 +172,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Payment Option',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -180,7 +180,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Shipping',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -199,7 +199,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Manage Category',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
         unset($id);
@@ -208,7 +208,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => 0,
             'position' => ++$op,
             'title' => 'Products',
-            'icon' => 'fa-product-hunt',
+            'icon' => 'fa-toolbox',
             'route' => 'na'
         ])->id;
 
@@ -217,7 +217,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Manufacturer / Brand',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -225,7 +225,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Suppliers',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -233,7 +233,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Product Feed',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -241,7 +241,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Product Line',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -249,7 +249,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Product Attributes',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -257,7 +257,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Product Reviews',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 
@@ -265,7 +265,7 @@ class AdminNavigationSeeder extends Seeder
             'parent_id' => $id,
             'position' => ++$ip,
             'title' => 'Product Q&A',
-            'icon' => 'fa-images',
+            'icon' => 'fa-code-branch',
             'route' => 'na'
         ]);
 

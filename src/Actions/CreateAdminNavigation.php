@@ -3,7 +3,7 @@
 namespace Iosum\AdminNav\Actions;
 
 use Illuminate\Support\Facades\DB;
-use Iosum\AdminNav\Contracts\CreateAdminNavigation as CreateAdminNavigationInterface;
+use Iosum\AdminNav\Contracts\CreateAdminNavigationInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
 
 class CreateAdminNavigation implements CreateAdminNavigationInterface

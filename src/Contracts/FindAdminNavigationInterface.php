@@ -3,7 +3,7 @@
 
 namespace Iosum\AdminNav\Contracts;
 
-interface FindAdminNavigation
+interface FindAdminNavigationInterface
 {
     /**
      * @param $id

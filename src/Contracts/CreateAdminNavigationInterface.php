@@ -3,11 +3,11 @@
 
 namespace Iosum\AdminNav\Contracts;
 
-interface UpdateAdminNavigation
+interface CreateAdminNavigationInterface
 {
     /**
      * @param array $params
      * @return mixed
      */
-    public function updateAdminNavigation(array $params);
+    public function createAdminNavigation(array $params);
 }

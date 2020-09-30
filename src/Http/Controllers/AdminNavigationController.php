@@ -2,18 +2,22 @@
 
 namespace Iosum\AdminNav\Http\Controllers;
 
-use Illuminate\Http\Response;
-use Iosum\AdminNav\Contracts\CreateAdminNavigation as CreateAdminNavigationInterface;
-use Iosum\AdminNav\Contracts\DeleteAdminNavigation as DeleteAdminNavigationInterface;
-use Iosum\AdminNav\Contracts\FetchAdminNavigation as FetchAdminNavigationInterface;
-use Iosum\AdminNav\Contracts\FetchAdminNavigationTree as FetchAdminNavigationTreeInterface;
-use Iosum\AdminNav\Contracts\FindAdminNavigation as FindAdminNavigationInterface;
-use Iosum\AdminNav\Contracts\UpdateAdminNavigation as UpdateAdminNavigationInterface;
-use Iosum\AdminNav\Http\Requests\AdminNavigationStoreRequest;
-use Iosum\AdminNav\Http\Requests\AdminNavigationUpdateRequest;
-use Iosum\AdminNav\Http\Resources\AdminNavigationResource;
-use Iosum\AdminNav\Http\Resources\AdminNavigationTreeResource;
+use Iosum\AdminNav\Http\Resources\{
+    AdminNavigationCollectionResource,
+    AdminNavigationTreeCollectionResource,
+    AdminNavigationResource
+};
+use Iosum\AdminNav\Contracts\{
+    CreateAdminNavigationInterface,
+    DeleteAdminNavigationInterface,
+    FetchAdminNavigationInterface,
+    FetchAdminNavigationTreeInterface,
+    FindAdminNavigationInterface,
+    UpdateAdminNavigationInterface
+};
+use Iosum\AdminNav\Http\Requests\{AdminNavigationStoreRequest, AdminNavigationUpdateRequest};
 use Iosum\AdminNav\Models\AdminNavigation;
+use Illuminate\Http\Response;
 use Iosum\Base\Http\Controllers\Controller;
 
 class AdminNavigationController extends Controller
@@ -24,25 +28,25 @@ class AdminNavigationController extends Controller
      *
      * @param int $parentId
      * @param FetchAdminNavigationInterface $fetchAdminNavigation
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return AdminNavigationCollectionResource
      */
     public function index(
         $parentId = 0,
         FetchAdminNavigationInterface $fetchAdminNavigation
     )
     {
-        return AdminNavigationResource::collection($fetchAdminNavigation->get($parentId));
+        return new AdminNavigationCollectionResource($fetchAdminNavigation->get($parentId));
     }
 
     /**
      * Get resource tree
      *
      * @param FetchAdminNavigationTreeInterface $fetch
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return AdminNavigationTreeCollectionResource
      */
     public function tree(FetchAdminNavigationTreeInterface $fetch)
     {
-        return AdminNavigationTreeResource::collection($fetch->getTree());
+        return new AdminNavigationTreeCollectionResource($fetch->getTree());
     }
 
     /**

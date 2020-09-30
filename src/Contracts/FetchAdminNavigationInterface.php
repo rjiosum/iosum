@@ -3,7 +3,7 @@
 
 namespace Iosum\AdminNav\Contracts;
 
-interface FetchAdminNavigation
+interface FetchAdminNavigationInterface
 {
     /**
      * @param $parentId

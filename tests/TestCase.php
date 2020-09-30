@@ -4,13 +4,18 @@ namespace Iosum\AdminNav\Tests;
 
 use Iosum\AdminAuth\Providers\AdminAuthServiceProvider;
 use Iosum\AdminNav\Providers\AdminNavigationServiceProvider;
+use Iosum\Base\Providers\BaseServiceProvider;
 use Laravel\Passport\Passport;
 use Laravel\Passport\PassportServiceProvider;
+use Illuminate\Foundation\Testing\WithFaker;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
+    use WithFaker;
+
     public $mockConsoleOutput = false;
+    protected $admin;
 
     protected function setUp(): void
     {
@@ -26,6 +31,9 @@ class TestCase extends Orchestra
         Passport::routes(function ($router) {
             $router->forAccessTokens();
         });
+
+        $this->admin = $this->create('Iosum\AdminAuth\Models\Admin',  ['email' => 'raj@test.com']);
+        Passport::actingAs($this->admin, [], 'api:admin');
     }
 
     protected function getPackageProviders($app)
@@ -34,11 +42,22 @@ class TestCase extends Orchestra
             AdminNavigationServiceProvider::class,
             AdminAuthServiceProvider::class,
             PassportServiceProvider::class,
+            BaseServiceProvider::class
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
+    }
+
+    public function data($data = []): array
+    {
+        return [
+            'parent_id' => $data['parent_id'] ?? 0,
+            'position' => $data['position'] ?? 1,
+            'title' => $data['title'] ?? $this->faker->text(40),
+            'route' => $data['route'] ?? 'na',
+        ];
     }
 
     public function create(string $class, array $attributes = [], int $times = null)

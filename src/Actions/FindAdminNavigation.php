@@ -3,7 +3,7 @@
 
 namespace Iosum\AdminNav\Actions;
 
-use Iosum\AdminNav\Contracts\FindAdminNavigation as FindAdminNavigationInterface;
+use Iosum\AdminNav\Contracts\FindAdminNavigationInterface;
 use Iosum\AdminNav\Models\AdminNavigation;
 
 class FindAdminNavigation implements FindAdminNavigationInterface
