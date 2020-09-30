@@ -10,12 +10,12 @@ class HelperService
      * @param int $id
      * @return string
      */
-    public function path(int $id) : string
+    public function path(int $id): string
     {
         $id = 1000000000 + $id;
-        $path = substr($id,1);
-        $path = str_split($path,3);
-        $path = implode('/', $path).'/';
+        $path = substr((string)$id, 1);
+        $path = str_split($path, 3);
+        $path = implode('/', $path) . '/';
         return $path;
     }
 
@@ -25,10 +25,10 @@ class HelperService
      * @param bool $upper
      * @return string
      */
-    public function randomKey(int $length, bool $upper = false) : string
+    public function randomKey(int $length, bool $upper = false): string
     {
-        $string = SHA1(microtime()).SHA1(microtime()).SHA1(microtime());
-        $string = substr($string,rand(0,(64-$length)),$length);
+        $string = SHA1(microtime()) . SHA1(microtime()) . SHA1(microtime());
+        $string = substr($string, rand(0, (64 - $length)), $length);
         return ($upper === TRUE) ? strtoupper($string) : $string;
     }
 
@@ -38,7 +38,7 @@ class HelperService
      * @param int $quantity
      * @return array
      */
-    public function uniqueRandomNumbers(int $min, int $max, int $quantity) : array
+    public function uniqueRandomNumbers(int $min, int $max, int $quantity): array
     {
         $numbers = range($min, $max);
         shuffle($numbers);

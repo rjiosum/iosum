@@ -32,7 +32,7 @@ class Controller extends BaseController
     protected function showErrorPage($errorCode = 404, $message = null)
     {
         $data['message'] = $message;
-        return response()->view('errors.'.$errorCode, $data, $errorCode);
+        return response()->view('errors.' . $errorCode, $data, $errorCode);
     }
 
     /**
@@ -70,17 +70,13 @@ class Controller extends BaseController
 
     /**
      * @param bool $status
-     * @param null $data
+     * @param array $data
      * @param array $message
      * @param int $responseCode
      * @return \Illuminate\Http\JsonResponse
      */
     protected function responseJson($status = true, $data = null, $message = [], $responseCode = Response::HTTP_OK)
     {
-        return response([
-                'status' => $status,
-                'data' => $data,
-                'message' => $message
-            ], $responseCode);
+         return response()->json(['status' => $status,'message' => $message, 'data' => $data], $responseCode);
     }
 }
