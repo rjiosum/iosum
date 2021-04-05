@@ -26,7 +26,8 @@ class AdminNavigationStoreTest extends TestCase
                         "position",
                         "title",
                         "icon",
-                        "route",
+                        "route_name",
+                        "route_path",
                         "created_at",
                         "updated_at",
                         "created_h",
@@ -41,7 +42,8 @@ class AdminNavigationStoreTest extends TestCase
                     "type" => "admin-nav",
                     "attributes" => [
                         "title" => $data['title'],
-                        "route" => $data['route'],
+                        "route_name" => $data['route_name'],
+                        "route_path" => $data['route_path'],
                     ]
                 ],
                 "message" => trans('base::response.success.create', ['attribute' => 'Navigation']),
@@ -49,7 +51,8 @@ class AdminNavigationStoreTest extends TestCase
 
         $this->assertDatabaseHas('admin_navigations', [
             "title" => $data["title"],
-            "route" => $data['route'],
+            "route_name" => $data['route_name'],
+            "route_path" => $data['route_path'],
         ]);
     }
 
@@ -80,14 +83,26 @@ class AdminNavigationStoreTest extends TestCase
                 ],
             ]);
 
-        //route field is required
-        $this->postJson(route('admin.nav.store'), $this->data(['route' => '']))
+        //route name field is required
+        $this->postJson(route('admin.nav.store'), $this->data(['route_name' => '']))
             ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertExactJson([
                 'message' => 'The given data was invalid.',
                 'errors' => [
-                    'route' => [
-                        trans('validation.required', ['attribute' => 'route']),
+                    'route_name' => [
+                        trans('validation.required', ['attribute' => 'route name']),
+                    ],
+                ],
+            ]);
+
+        //route path field is required
+        $this->postJson(route('admin.nav.store'), $this->data(['route_path' => '']))
+            ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
+            ->assertExactJson([
+                'message' => 'The given data was invalid.',
+                'errors' => [
+                    'route_path' => [
+                        trans('validation.required', ['attribute' => 'route path']),
                     ],
                 ],
             ]);

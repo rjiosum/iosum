@@ -39,7 +39,8 @@ class AdminNavigationUpdateTest extends TestCase
                         "position",
                         "title",
                         "icon",
-                        "route",
+                        "route_name",
+                        "route_path",
                         "created_at",
                         "updated_at",
                         "created_h",
@@ -91,14 +92,26 @@ class AdminNavigationUpdateTest extends TestCase
                 ],
             ]);
 
-        //route field is required
-        $this->patchJson(route('admin.nav.update', ['nav' => $nav]), $this->data(['route' => '']))
+        //route name field is required
+        $this->patchJson(route('admin.nav.update', ['nav' => $nav]), $this->data(['route_name' => '']))
             ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertExactJson([
                 'message' => 'The given data was invalid.',
                 'errors' => [
-                    'route' => [
-                        trans('validation.required', ['attribute' => 'route']),
+                    'route_name' => [
+                        trans('validation.required', ['attribute' => 'route name']),
+                    ],
+                ],
+            ]);
+
+        //route path field is required
+        $this->patchJson(route('admin.nav.update', ['nav' => $nav]), $this->data(['route_path' => '']))
+            ->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
+            ->assertExactJson([
+                'message' => 'The given data was invalid.',
+                'errors' => [
+                    'route_path' => [
+                        trans('validation.required', ['attribute' => 'route path']),
                     ],
                 ],
             ]);

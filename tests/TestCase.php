@@ -56,7 +56,8 @@ class TestCase extends Orchestra
             'parent_id' => $data['parent_id'] ?? 0,
             'position' => $data['position'] ?? 1,
             'title' => $data['title'] ?? $this->faker->text(40),
-            'route' => $data['route'] ?? 'na',
+            'route_name' => $data['route_name'] ?? 'na',
+            'route_path' => $data['route_path'] ?? 'na',
         ];
     }
 

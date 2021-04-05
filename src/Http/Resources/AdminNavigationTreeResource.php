@@ -5,7 +5,7 @@ namespace Iosum\AdminNav\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AdminNavigationTreeResource extends JsonResource
+class  AdminNavigationTreeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,7 +21,8 @@ class AdminNavigationTreeResource extends JsonResource
             'attributes' => [
                 'title' => $this->title,
                 'icon' => $this->icon,
-                'route' => $this->route,
+                'route_name' => $this->route_name,
+                'route_path' => $this->route_path,
                 'children' => new AdminNavigationTreeCollectionResource($this->whenLoaded('children')),
             ]
         ];

@@ -11,7 +11,7 @@ class AdminNavigation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['parent_id', 'position', 'title', 'icon', 'route'];
+    protected $fillable = ['parent_id', 'position', 'title', 'icon', 'route_name', 'route_path'];
 
     protected static function newFactory()
     {
@@ -23,7 +23,12 @@ class AdminNavigation extends Model
         return $this->hasMany(AdminNavigation::class, 'parent_id', 'id');
     }
 
-    public function scopeParent(Builder $builder)
+    public function parent()
+    {
+        return $this->belongsTo(AdminNavigation::class, 'parent_id', 'id');
+    }
+
+    public function scopeParents(Builder $builder)
     {
         return $builder->where('parent_id', 0);
     }

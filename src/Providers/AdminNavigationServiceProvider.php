@@ -2,6 +2,7 @@
 
 namespace Iosum\AdminNav\Providers;
 
+use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
 use Iosum\AdminNav\Actions\{
     CreateAdminNavigation,

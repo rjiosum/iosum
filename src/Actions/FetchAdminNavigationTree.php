@@ -22,6 +22,6 @@ class FetchAdminNavigationTree implements FetchAdminNavigationTreeInterface
      */
     public function getTree()
     {
-        return $this->adminNavigation::with('children')->parent()->ordered()->get();
+        return $this->adminNavigation::with('children')->parents()->ordered()->get();
     }
 }

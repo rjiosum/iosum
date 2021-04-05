@@ -20,10 +20,16 @@ class FetchAdminNavigation implements FetchAdminNavigationInterface
 
     /**
      * @param $parentId
+     * @param int $perPage
+     * @param string $sortBy
+     * @param string $sortDirection
      * @return mixed
      */
-    public function get($parentId)
+    public function get($parentId, $perPage = 3, $sortBy = 'id', $sortDirection = 'desc')
     {
-        return $this->adminNavigation::where('parent_id', '=', $parentId)->orderByDesc('position')->paginate(3);
+        return $this->adminNavigation::where('parent_id', '=', $parentId)
+            ->withCount('children')
+            ->with('parent')
+            ->orderBy($sortBy, $sortDirection)->paginate($perPage);
     }
 }

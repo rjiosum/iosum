@@ -26,7 +26,8 @@ class AdminNavigationFactory extends Factory
             'position' => 1,
             'title' => $this->faker->text(45),
             'icon' => 'fa-users',
-            'route' => 'na',
+            'route_name' => 'na',
+            'route_path' => 'na',
         ];
     }
 }

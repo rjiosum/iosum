@@ -19,8 +19,9 @@ class CreateAdminNavigationsTable extends Migration
             $table->unsignedInteger('parent_id')->default(0);
             $table->unsignedInteger('position')->default(1);
             $table->string('title', 50);
-            $table->string('icon', 30)->default('fa fa-tachometer-alt');
-            $table->string('route');
+            $table->string('icon', 30)->default('fa-tools');
+            $table->string('route_name');
+            $table->string('route_path');
             $table->timestamps();
         });
     }

@@ -26,7 +26,8 @@ class AdminNavigationFetchTreeTest extends TestCase
                         "attributes" => [
                             "title",
                             "icon",
-                            "route",
+                            "route_name",
+                            "route_path",
                             "children",
                         ]
                     ],

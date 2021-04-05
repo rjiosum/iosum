@@ -25,7 +25,8 @@ class AdminNavigationUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|max:50',
-            'route' => 'required',
+            'route_name' => 'required',
+            'route_path' => 'required',
         ];
     }
 }

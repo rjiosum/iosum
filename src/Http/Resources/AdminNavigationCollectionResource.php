@@ -19,6 +19,9 @@ class AdminNavigationCollectionResource extends ResourceCollection
             'data' => $this->collection,
             'links' => [
                 'self' => route('admin.nav'),
+            ],
+            'meta' => [
+                'options' => $request->all()
             ]
         ];
     }
