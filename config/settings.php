@@ -3,7 +3,7 @@
 return [
 
     'backend' => [
-        'route' => 'backoffice',
+        'route' => 'backadmin',
         'theme' => 'backend/theme01'
     ],
 

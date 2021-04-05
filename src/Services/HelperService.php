@@ -5,6 +5,9 @@ namespace Iosum\Base\Services;
 
 class HelperService
 {
+    private $secret_key = 'DJfcQsgiUZccxaXn';
+    private $secret_iv = 'MEBoFBjctSdPILVn';
+    private $encrypt_method = "AES-256-CBC";
     /**
      * Return the directory path of a given value ($id = 123 will return 000/000/123/) .
      * @param int $id
@@ -43,5 +46,36 @@ class HelperService
         $numbers = range($min, $max);
         shuffle($numbers);
         return array_slice($numbers, 0, $quantity);
+    }
+
+    public function encode($string)
+    {
+        $key = hash('sha256', $this->secret_key);
+        $iv = substr(hash('sha256', $this->secret_iv), 0, 16);
+        return $this->safe_b64encode(openssl_encrypt($string, $this->encrypt_method, $key, 0, $iv));
+    }
+
+    public function decode($string)
+    {
+        $key = hash('sha256', $this->secret_key);
+        $iv = substr(hash('sha256', $this->secret_iv), 0, 16);
+        return openssl_decrypt($this->safe_b64decode($string), $this->encrypt_method, $key, 0, $iv);
+    }
+
+    private function safe_b64encode($string)
+    {
+        $data = base64_encode($string);
+        $data = str_replace(array('+', '/', '='), array('-', '_', ''), $data);
+        return $data;
+    }
+
+    private function safe_b64decode($string)
+    {
+        $data = str_replace(array('-', '_'), array('+', '/'), $string);
+        $mod4 = strlen($data) % 4;
+        if ($mod4) {
+            $data .= substr('====', $mod4);
+        }
+        return base64_decode($data);
     }
 }
