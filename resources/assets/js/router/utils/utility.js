@@ -1,5 +1,11 @@
+import {backendPrefix} from "@/config/settings";
+
 const lazy = (component) => {
-    return () => import(/* webpackChunkName: '' */ `@/views/${component}`).then(c => c.default || c)
+    return () => import(/* webpackChunkName: '[request]' */ `@/views/${component}`).then(c => c.default || c)
+};
+
+const prefix = (path) => {
+    return `${backendPrefix}/${path}`
 };
 
 const pipeline = (context, middleware, index) => {
@@ -14,4 +20,4 @@ const pipeline = (context, middleware, index) => {
     }
 };
 
-export {lazy, pipeline}
+export {lazy, pipeline, prefix}

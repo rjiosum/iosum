@@ -10,6 +10,38 @@ html, body, .theme--light.v-application {
 .theme--dark.v-list-item:focus:before {
   opacity: 0 !important;
 }
+button:focus{
+  outline: none !important;
+}
+.theme--light.v-data-table,
+.theme--light.v-messages,
+.theme--light.v-card .v-card__subtitle, .theme--light.v-card>.v-card__text,
+.theme--light.v-counter,
+.theme--light.v-label,
+.theme--light.v-input, .theme--light.v-input input, .theme--light.v-input textarea
+{
+  color: rgba(0,0,0,1) !important;
+}
+.block-border{
+  border: 1px solid rgba(54,54,54,0.2);
+}
+.v-application .v-breadcrumbs{
+  background: #eeeeee;
+  padding: 10px 12px 10px 24px;
+}
+.v-breadcrumbs__divider .v-icon{
+  color:#000 !important;
+}
+
+
+.theme--light.v-input input::placeholder, .theme--light.v-input textarea::placeholder
+{
+  font-size: 12px;
+  color: rgba(0,0,0,0.6) !important;
+}
+.v-input--selection-controls .v-input__slot>.v-label, .v-input--selection-controls .v-radio>.v-label{
+  font-size: 14px;
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s ease;

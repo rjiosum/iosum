@@ -1,0 +1,9 @@
+export const SET_COLLECTION = 'SET_COLLECTION'
+export const SET_FILTERS = 'SET_FILTERS'
+export const SET_TOTAL = 'SET_TOTAL'
+export const SET_LOADING = 'SET_LOADING'
+export const SET_SELECTED_HEADERS = 'SET_SELECTED_HEADERS'
+
+
+
+

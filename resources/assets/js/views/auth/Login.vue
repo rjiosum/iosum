@@ -57,7 +57,10 @@
 
                         <template v-slot:actions>
                             <v-spacer></v-spacer>
-                            <v-btn class="tile blue white--text" type="submit"
+                            <v-btn depressed
+                                   color="accent"
+                                   type="submit"
+                                   width="50%"
                                    :loading="submitted"
                                    :disabled="submitted">Login
                             </v-btn>

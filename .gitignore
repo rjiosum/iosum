@@ -3,6 +3,8 @@
 /vendor
 /build
 .idea/
+/coverage
+/public/backend
 .phpstorm.meta.php
 .env
 .env.backup

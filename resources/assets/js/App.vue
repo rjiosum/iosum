@@ -4,9 +4,7 @@
         <AppSideBar v-if="isAuthenticated" />
         <AppToolBar v-if="isAuthenticated" />
         <v-main>
-            <transition name="fade" mode="out-in">
-                <router-view></router-view>
-            </transition>
+            <router-view :key="$route.fullPath"></router-view>
         </v-main>
         <AppToTop />
     </v-app>

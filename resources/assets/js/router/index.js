@@ -6,13 +6,16 @@ import {pipeline} from "./utils/utility"
 import auth from './routes/auth'
 import errors from "./routes/errors"
 import user from "./routes/user"
-
+import adminNav from "./routes/admin-nav"
+import adminCrud from "./routes/admin-crud"
 
 Vue.use(VueRouter)
 
 const routes = [
     ...auth,
     ...user,
+    ...adminNav,
+    ...adminCrud,
     ...errors
 ];
 

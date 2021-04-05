@@ -1,19 +1,23 @@
 export default $axios => resource => ({
 
-   index(page) {
-        return $axios.get(`${resource}/index?page=${page}`);
+   index(parentId, request) {
+        return $axios.get(`${resource}/${parentId}`, {params: request});
     },
 
     create(payload) {
-        return $axios.post(`${resource}`, payload)
+        return $axios.post(`${resource}/store`, payload)
+    },
+
+    show(id) {
+        return $axios.get(`${resource}/show/${id}`)
     },
 
     update(id, payload) {
-        return $axios.patch(`${resource}/${id}`, payload)
+        return $axios.patch(`${resource}/edit/${id}`, payload)
     },
 
     delete(id) {
-        return $axios.delete(`${resource}/${id}`)
+        return $axios.delete(`${resource}/destroy/${id}`)
     },
 
     tree(){

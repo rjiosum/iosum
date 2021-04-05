@@ -11,9 +11,9 @@
             </v-avatar>
             <v-sheet
                     v-else
-                    :class="{'pa-7': !$slots.image}"
+                    :class="padding ? padding : {'pa-7': !$slots.image}"
                     :color="color"
-                    :max-height="icon ? 90 : undefined"
+                    :max-height="icon ? 90 : ((maxHeight) ? maxHeight : undefined)"
                     :width="icon ? 'auto' : '100%'"
                     elevation="6"
                     class="text-start v-card--base__heading mb-n6"
@@ -55,6 +55,14 @@
     export default {
         name: "AppCard",
         props: {
+            maxHeight : {
+                type: String,
+                default: undefined,
+            },
+            padding : {
+                type: String,
+                default: undefined,
+            },
             avatar: {
                 type: String,
                 default: '',

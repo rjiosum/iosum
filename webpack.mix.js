@@ -8,6 +8,10 @@ const publicPath = 'public/backend/theme01/';
 
 const mixManifest = publicPath + '/mix-manifest.json';
 
+mix.disableNotifications();
+
+mix.browserSync('mod.test:8081');
+
 mix.setPublicPath(publicPath);
 mix.setResourceRoot('../');
 

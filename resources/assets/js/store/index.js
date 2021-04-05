@@ -7,11 +7,12 @@ import errors from './modules/errors/server-errors'
 import notify from "./modules/notify/notify"
 import auth from "./modules/auth/auth"
 import navbar from "./modules/navbar/navbar"
+import adminNav from "./modules/admin-nav/admin-nav"
 
 Vue.use(Vuex)
 
 const dataState = createPersistedState({
-    paths: ['drawer']
+    paths: ['drawer', 'adminNav.selectedHeaders']
 })
 
 export default new Vuex.Store({
@@ -20,10 +21,10 @@ export default new Vuex.Store({
         errors,
         notify,
         auth,
-        navbar
+        navbar,
+        adminNav
     },
     plugins: [dataState],
 })
-
 
 

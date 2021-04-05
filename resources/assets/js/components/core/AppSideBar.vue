@@ -31,9 +31,8 @@
                     <v-list-item-title>Dashboard</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
-
             <v-list-group
-                    v-for="item in nav"
+                    v-for="item in navs"
                     :key="item.id"
                     v-model="item.active"
                     append-icon="mdi-menu-down"
@@ -42,26 +41,26 @@
             >
                 <template v-slot:activator>
                     <v-list-item-avatar size="32">
-                        <v-icon size="22" v-text="item.icon"></v-icon>
+                        <v-icon size="22" v-text="item.attributes.icon"></v-icon>
                     </v-list-item-avatar>
                     <v-list-item-content>
-                        <v-list-item-title v-text="item.title"></v-list-item-title>
+                        <v-list-item-title v-text="item.attributes.title"></v-list-item-title>
                     </v-list-item-content>
                 </template>
 
                 <v-list-item
-                        v-for="subItem in item.children"
+                        v-for="subItem in item.attributes.children.data"
                         :key="subItem.id"
-                        router :to="{name:'about'}"
-                        active-class="primary"
+                        router :to="{ name: subItem.attributes.route_name }"
+                        :active-class="subItem.attributes.route_name === currentRouteName ? 'primary' : ''"
                         class="pl-2"
                         dense
                 >
                     <v-list-item-avatar size="32" color="cyan darken-1">
-                        <v-icon small v-text="subItem.icon"></v-icon>
+                        <v-icon small v-text="subItem.attributes.icon"></v-icon>
                     </v-list-item-avatar>
                     <v-list-item-content>
-                        <v-list-item-title v-text="subItem.title"></v-list-item-title>
+                        <v-list-item-title v-text="subItem.attributes.title"></v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
                 <v-divider></v-divider>
@@ -79,9 +78,25 @@
                 drawer: 'drawer/drawer',
                 expandOnHover: 'drawer/expandOnHover',
                 user: 'auth/user',
-                nav: 'navbar/navbar'
-            })
-        }
+
+            }),
+            navs:{
+                get(){
+                    return this.$store.getters['navbar/navbar']
+                }
+            },
+            currentRouteName() {
+                return this.$route.name;
+            }
+        },
+        /*methods: {
+            currentRouteName() {
+                console.log(this.navs)
+                const entries = Object.entries(this.navs)
+                console.log(entries)
+
+            }
+        }*/
     }
 </script>
 

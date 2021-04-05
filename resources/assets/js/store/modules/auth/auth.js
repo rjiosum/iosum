@@ -30,7 +30,7 @@ const actions = {
     async login({commit, dispatch}, credentials){
         const response = await AuthRepository.login(credentials)
         if(response.data.status){
-            commit(types.LOGIN, response.data.data);
+            commit(types.LOGIN, response.data.data.data.attributes);
             dispatch('navbar/getNavBar', {}, {root:true});
         }
         return response
@@ -45,7 +45,7 @@ const actions = {
     async getUser ({commit}) {
         const response = await UserRepository.getUser()
         if(response.data.status){
-            commit(types.LOGIN, response.data.data);
+            commit(types.LOGIN, response.data.data.data.attributes);
         }else{
             commit(types.LOGOUT);
         }

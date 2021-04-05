@@ -1,11 +1,11 @@
-import {lazy} from '../utils/utility';
+import {lazy, prefix} from '../utils/utility';
 import auth from '@/middleware/auth';
 import isLoggedIn from '@/middleware/isLoggedIn';
 
 export default [
     {
-        path: '/backoffice/dashboard',
-        alias: '/backoffice',
+        path: prefix('dashboard'),
+        alias: prefix(''),
         name: 'dashboard',
         component: lazy('Dashboard'),
         meta: {
@@ -14,7 +14,7 @@ export default [
         }
     },
     {
-        path: '/backoffice/about',
+        path: prefix('about'),
         name: 'about',
         component: lazy('About'),
         meta: {
