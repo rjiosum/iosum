@@ -30,8 +30,8 @@ class LoginTest extends TestCase
                             "first_name" => $user->first_name,
                             "last_name" => $user->last_name,
                             "name" => $user->first_name . " " . $user->last_name,
-                            "email" => $user->email
-                        ]
+                            "email" => $user->email,
+                        ],
                     ],
                     "links" => [
                         "self" => route('admin.profile'),
@@ -49,14 +49,14 @@ class LoginTest extends TestCase
                             "first_name",
                             "last_name",
                             "name",
-                            "email"
-                        ]
+                            "email",
+                        ],
                     ],
                     "links" => [
-                        "self"
+                        "self",
                     ],
                 ],
-                "message"
+                "message",
             ])
             ->assertCookie(config('passport.admin.cookie.name'))
             ->assertStatus(Response::HTTP_OK);
