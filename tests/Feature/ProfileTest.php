@@ -14,7 +14,7 @@ class ProfileTest extends TestCase
     /** @test */
     public function canGetLoggedInAdminDetails(): void
     {
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
 
         $user = $this->create('Iosum\AdminAuth\Models\Admin');
         Passport::actingAs($user, [], 'api:admin');
@@ -64,7 +64,7 @@ class ProfileTest extends TestCase
     /** @test */
     public function willNotGetAdminDetailsIfAdminIsNotLoggedIn(): void
     {
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
 
         $this->getJson(route('admin.profile'))
             ->assertJson([
