@@ -1,6 +1,15 @@
-# Laravel packages 
+# Modular development using Laravel packages 
 
-> Requirements: php 7.3, laravel v8
+### Demo
+
+ ![Page 1](demo00.jpg) 
+ 
+ ![Page 2](demo01.jpg) 
+ 
+ ![Page 3](demo02.jpg) 
+
+
+> Requirements: php 7.4, laravel v8
 
 - Base
 - Api Exception
