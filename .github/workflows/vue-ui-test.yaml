@@ -1,0 +1,37 @@
+# workflow name
+name: Vue UI Tests
+
+# execute on events
+on:
+  push:
+    branches:
+      - 'admin-vue-ui'
+
+# jobs to run
+jobs:
+  # install dependencies and run test command
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      # 1: Checkout repository in the CWD
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # 2: setup node
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # 3: install NPM dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4: run test command
+      - name: Run test command
+        run: npm run test
