@@ -1,5 +1,7 @@
 # Modular development using Laravel packages 
 
+[![Admin Auth Api Tests](https://github.com/rjiosum/iosum/actions/workflows/auth-test.yml/badge.svg)](https://github.com/rjiosum/iosum/actions/workflows/auth-test.yml) [![Admin Nav Tests](https://github.com/rjiosum/iosum/actions/workflows/admin-nav.yml/badge.svg)](https://github.com/rjiosum/iosum/actions/workflows/admin-nav.yml) [![Vue UI Tests](https://github.com/rjiosum/iosum/actions/workflows/vue-ui-test.yaml/badge.svg)](https://github.com/rjiosum/iosum/actions/workflows/vue-ui-test.yaml)
+
 ### Demo
 
  ![Page 1](demo00.jpg) 
