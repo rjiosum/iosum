@@ -32,7 +32,7 @@ class TestCase extends Orchestra
     {
         return [
             AdminAuthServiceProvider::class,
-            BaseServiceProvider::class
+            BaseServiceProvider::class,
         ];
     }
 

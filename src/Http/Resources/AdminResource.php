@@ -24,11 +24,11 @@ class AdminResource extends JsonResource
                     'name' => $this->full_name,
                     'email' => $this->email,
                     'avatar' => $this->avatar_url,
-                ]
+                ],
             ],
             'links' => [
                 'self' => route('admin.profile'),
-            ]
+            ],
         ];
     }
 }
